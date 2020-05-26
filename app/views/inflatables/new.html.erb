@@ -1,3 +1,38 @@
-<h1>we create a new inflatable here</h1>
+<h1>Add your inflatable</h1>
 <br>
+
+
+<%= simple_form_for @inflatable,
+  wrapper: :horizontal_form,
+  wrapper_mappings: {
+    boolean:       :horizontal_boolean,
+    radio_buttons: :horizontal_collection,
+
+  } do |f| %>
+
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+
+  <%= f.input :location %>
+
+  <%= f.input :price %>
+
+  <%= f.input :description %>
+
+  <%= f.input :category, collection: Inflatable.cat_array, input_html: { multiple: true } %>
+
+  <%= f.input :condition, as: :radio_buttons, collection: Inflatable.condition_array, wrapper: :horizontal_collection_inline %>
+
+  <%= f.input :photo, as: :file %>
+
+  <div class="form-group row mb-0">
+    <div class="col-sm-9 offset-sm-3">
+      <%= f.button :submit, class: "btn-primary" %>
+      <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+    </div>
+  </div>
+<% end %>
+
+
 <%= link_to "back", inflatables_path %>
