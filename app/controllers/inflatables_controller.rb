@@ -1,4 +1,5 @@
 class InflatablesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show, :new]
 
   def index
     @inflatables = Inflatable.all
@@ -14,6 +15,7 @@ class InflatablesController < ApplicationController
 
   def create
     @inflatable = Inflatable.new(inflatable_params)
+    @inflatable.user = current_user
     @inflatable.save
 
     if @inflatable.save
