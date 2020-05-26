@@ -4,10 +4,13 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @inflatable = Inflatable.find(params[:inflatable_id])
     @booking = Booking.new(booking_params)
-    @user = current_user
-    @inflatable = Inflatable.find(params[:inflatable])
     @booking.inflatable = @inflatable
+    @booking.user = current_user
+    @booking.save
+
+    redirect_to dashboard_path
   end
 
   def update

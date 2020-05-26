@@ -7,6 +7,7 @@ class InflatablesController < ApplicationController
 
   def show
     @inflatable = Inflatable.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
