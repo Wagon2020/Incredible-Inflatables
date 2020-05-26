@@ -16,11 +16,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
-<<<<<<< HEAD
 gem 'cloudinary', '~> 1.12.0'
-=======
 gem 'faker'
->>>>>>> 0a56bff0c06e9f8bc3700bbb8077a8905aaedf07
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
