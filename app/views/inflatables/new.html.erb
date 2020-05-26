@@ -20,7 +20,7 @@
 
   <%= f.input :description %>
 
-  <%= f.input :category, collection: Inflatable.cat_array, input_html: { multiple: true } %>
+  <%= f.input :category, collection: Inflatable.cat_array %>
 
   <%= f.input :condition, as: :radio_buttons, collection: Inflatable.condition_array, wrapper: :horizontal_collection_inline %>
 

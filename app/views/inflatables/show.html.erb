@@ -4,6 +4,7 @@
 <p>Price: <%= @inflatable.price %> €</p>
 <p>Location: <%= @inflatable.location %></p>
 <p>Category: <%= @inflatable.category %></p>
+<%= cl_image_tag @inflatable.photo.key, height: 300, width: 400, crop: :fill %>
 <br>
 <%= link_to "edit", edit_inflatable_path(@inflatable) %>
 <br>
