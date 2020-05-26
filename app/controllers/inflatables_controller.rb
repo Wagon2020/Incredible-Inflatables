@@ -50,7 +50,8 @@ class InflatablesController < ApplicationController
   end
 
   def inflatable_params
-    params.require(:inflatable).permit([:name, :photo])
+    all_params = [:name, :category, :location, :price, :condition, :description, :user, :photo]
+    params.require(:inflatable).permit(all_params)
   end
 
 end

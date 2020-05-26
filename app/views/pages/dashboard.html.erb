@@ -1,0 +1,14 @@
+<h1><%= @user.email %></h1>
+<p>my bookings: </p>
+  <% @user.bookings.each do |booking| %>
+    NAME: <%= booking.inflatable.name %> ||
+    STARTS: <%= booking.start_date %> ||
+    ENDS: <%= booking.end_date %>
+  <% end %>
+<p></p>
+<p>my inflatables: </p>
+  <% @user.inflatables.each do |inflatable| %>
+    <%=  inflatable.name %>
+    <% end %>
+<p></p>
+<%= link_to "create inflatable", new_inflatable_path %>
