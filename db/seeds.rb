@@ -14,7 +14,7 @@ inflatables_category_list = ['Air dancer', 'Air mattress' 'laser maze', 'climbin
 inflatables_condition_list = ['like new', 'new', 'uesd', 'save', 'aged', 'frail', 'weak', 'shabby', 'run-down', 'old', 'fragile', 'weather-beaten', 'acceptable', 'exellent', 'bad', 'marvelous', 'satisfying', 'superb', 'wonderfull', 'nice', 'pleasing', 'prime', 'sound', 'super', 'worthy', 'dirty', 'admirable', 'OK', 'poor', 'unacceptable', 'worthless', 'inadequate', 'rotten', 'usable', 'wicked', 'all right', 'good enouugh', 'fine', 'adequate', 'good', 'great', 'neat', 'solid', 'clean', 'comfortable']
 
 5.times do
-  @user = User.create!(
+  user = User.create!(
     email: Faker::Internet.email,
     password: "123456",
     first_name: Faker::Name.first_name,
@@ -31,7 +31,7 @@ inflatables_condition_list = ['like new', 'new', 'uesd', 'save', 'aged', 'frail'
       price: "rand(1..10) #{Faker::CryptoCoin.coin_name}",
       description: Faker::Hipster.paragraph(sentence_count: 2),
       condition: inflatables_condition_list[rand(inflatables_condition_list.length)],
-      user_id: @user.id
+      user_id: user.id
     )
   end
 end
