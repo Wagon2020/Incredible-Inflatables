@@ -4,11 +4,14 @@
     NAME: <%= booking.inflatable.name %> ||
     STARTS: <%= booking.start_date %> ||
     ENDS: <%= booking.end_date %>
+    <%= link_to " X ", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
 <p></p>
 <p>my inflatables: </p>
   <% @user.inflatables.each do |inflatable| %>
     <%=  inflatable.name %>
+    <%= link_to " X ", inflatable_path(inflatable), method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
 <p></p>
 <%= link_to "create inflatable", new_inflatable_path %>
+<%= link_to "home", root_path %>

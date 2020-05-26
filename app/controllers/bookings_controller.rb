@@ -10,6 +10,20 @@ class BookingsController < ApplicationController
     @booking.inflatable = @inflatable
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+
+    redirect_to dashboard_path(@booking.user)
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+
+    redirect_to dashboard_path(@booking.user)
+  end
+
   private
 
   def booking_params
