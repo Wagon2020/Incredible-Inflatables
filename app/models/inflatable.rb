@@ -4,10 +4,17 @@ class Inflatable < ApplicationRecord
   end
 
   def self.condition_array
-    ['like new', 'new', 'uesd', 'save', 'aged', 'frail', 'weak', 'shabby', 'run-down', 'old', 'fragile', 'weather-beaten', 'acceptable', 'exellent', 'bad', 'marvelous', 'satisfying', 'superb', 'wonderfull', 'nice', 'pleasing', 'prime', 'sound', 'super', 'worthy', 'dirty', 'admirable', 'OK', 'poor', 'unacceptable', 'worthless', 'inadequate', 'rotten', 'usable', 'wicked', 'all right', 'good enouugh', 'fine', 'adequate', 'good', 'great', 'neat', 'solid', 'clean', 'comfortable']
+    ['weather-beaten', 'acceptable', 'marvelous', 'satisfying', 'worthless', 'solid', 'stela', 'orgasmic', 'filthy', 'outrageous']
   end
 
   belongs_to :user
   has_one_attached :photo
   has_many :bookings
+
+  validates :name, presence: true#, uniqueness: { scope: :category, message: "name should be unique in #{category}"}
+  validates :category, presence: true
+  validates :location, presence: true
+  validates :price, presence: true
+  validates :condition, presence: true
+  validates :user_id, presence: true
 end
