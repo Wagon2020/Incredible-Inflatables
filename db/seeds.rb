@@ -6,13 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts 'Destroying users and inflatables'
-User.destroy_all # if Rails.env.development
+puts 'Destroying bookings, users and inflatables'
+Booking.destroy_all
 Inflatable.destroy_all
+User.destroy_all # if Rails.env.development
 
 inflatables_category_list = ['Air dancer', 'Air mattress' 'laser maze', 'climbing wall', 'Exercise ball', 'airscreen', 'Inflatable boat', 'Inflatable castle', 'Inflatable pool', 'Sex doll', 'Water ball', 'Zeppelin']
 
 inflatables_condition_list = ['weather-beaten', 'acceptable', 'marvelous', 'satisfying', 'worthless', 'solid', 'stela', 'orgasmic', 'filthy', 'outrageous']
+
+test_user = User.create!(
+    email: "infl@table.com",
+    password: "123456",
+    first_name: "Uni",
+    last_name: "Corn",
+    username: "inflatable",
+    description: Faker::Hipster.paragraph(sentence_count: 2)
+  )
 
 5.times do
   user = User.create!(
@@ -37,4 +47,4 @@ inflatables_condition_list = ['weather-beaten', 'acceptable', 'marvelous', 'sati
   end
 end
 
-puts '5 Users and some inflatables created'
+puts '5 Users, a Unicorn and some inflatables created'
