@@ -1,0 +1,10 @@
+<h1>List of all inflatables</h1>
+<% @inflatables.each do |inflatable| %>
+<%= link_to inflatable.name, inflatable_path(inflatable) %>
+<%= link_to "X", inflatable_path(inflatable), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
+<br>
+<%= link_to "new Inflatable", new_inflatable_path  %>
+<br>
+<%= link_to "back", root_path %>
+
