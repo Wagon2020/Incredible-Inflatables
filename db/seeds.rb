@@ -16,7 +16,7 @@ inflatables_condition_list = ['like new', 'new', 'uesd', 'save', 'aged', 'frail'
 5.times do
   @user = User.create!(
     email: Faker::Internet.email,
-    password: Faker::Internet.password(min_length: 10, max_length: 20),
+    password: "123456",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     username: Faker::Hipster.word,
