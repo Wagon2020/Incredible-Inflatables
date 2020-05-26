@@ -1,0 +1,11 @@
+<h1><%=  @inflatable.name %></h1>
+<p>Description: <%= @inflatable.description %></p>
+<p>Condition: <%= @inflatable.condition %></p>
+<p>Price: <%= @inflatable.price %> €</p>
+<p>Location: <%= @inflatable.location %></p>
+<p>Category: <%= @inflatable.category %></p>
+<br>
+<%= link_to "edit", edit_inflatable_path(@inflatable) %>
+<br>
+<%= link_to "back", inflatables_path %>
+
