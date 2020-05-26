@@ -11,7 +11,7 @@ User.destroy_all # if Rails.env.development
 
 inflatables_category_list = ['Air dancer', 'Air mattress' 'laser maze', 'climbing wall', 'Exercise ball', 'airscreen', 'Inflatable boat', 'Inflatable castle', 'Inflatable pool', 'Sex doll', 'Water ball', 'Zeppelin']
 
-inflatables_condition_list = ['like new', 'new', 'uesd', 'save', 'aged', 'frail', 'weak', 'shabby', 'run-down', 'old', 'fragile', 'weather-beaten', 'acceptable', 'exellent', 'bad', 'marvelous', 'satisfying', 'superb', 'wonderfull', 'nice', 'pleasing', 'prime', 'sound', 'super', 'worthy', 'dirty', 'admirable', 'OK', 'poor', 'unacceptable', 'worthless', 'inadequate', 'rotten', 'usable', 'wicked', 'all right', 'good enouugh', 'fine', 'adequate', 'good', 'great', 'neat', 'solid', 'clean', 'comfortable']
+inflatables_condition_list = ['weather-beaten', 'acceptable', 'marvelous', 'satisfying', 'worthless', 'solid', 'stela', 'orgasmic', 'filthy', 'outrageous']
 
 5.times do
   user = User.create!(
