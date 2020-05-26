@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
 
-  resources :inflatables
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'dashboard', to: 'pages#dashboard'
+
+  resources :inflatables do
+    resources :bookings, only: [:create]
+  end
+  resources :bookings, only: [:update, :destroy]
 end
