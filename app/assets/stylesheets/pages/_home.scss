@@ -21,6 +21,11 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+.body-text {
+  margin-top: 50px;
+  text-align: center;
+}
+
 .flex-box {
   display: flex;
   justify-content: space-between;
@@ -28,3 +33,17 @@
   margin-bottom: 60px;
 }
 
+.about h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.about {
+  padding: 7px 7px;
+  text-align: center;
+  background-color: $magenta;
+  color: white;
+}
