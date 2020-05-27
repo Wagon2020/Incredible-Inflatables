@@ -1,7 +1,25 @@
-<h1>List of all inflatables</h1>
-<% @inflatables.each do |inflatable| %>
-<%= link_to inflatable.name, inflatable_path(inflatable) %>
-<% end %>
+<div class="container">
+  <h1>All inflatables</h1>
+  <div class="cards">
+    <% @inflatables.each do |inflatable| %>
+
+      <div class="card-inflatable">
+        <% if inflatable.photo.attachment %>
+        <%= cl_image_tag inflatable.photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
+    <!--     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+     -->
+        <div class="card-inflatable-infos">
+          <div>
+            <h2><%= link_to inflatable.name, inflatable_path(inflatable) %></h2>
+            <p><%= inflatable.description %></p>
+          </div>
+          <h2 class="card-inflatable-pricing"><%= inflatable.price %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 <br>
 <%= link_to "new Inflatable", new_inflatable_path  %>
 <br>
