@@ -6,15 +6,16 @@
       <div class="card-inflatable">
         <% if inflatable.photo.attachment %>
         <%= cl_image_tag inflatable.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
         <% end %>
-    <!--     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-     -->
+
         <div class="card-inflatable-infos">
           <div>
             <h2><%= link_to inflatable.name, inflatable_path(inflatable) %></h2>
             <p><%= inflatable.description %></p>
           </div>
-          <h2 class="card-inflatable-pricing"><%= inflatable.price %></h2>
+          <h2 class="card-inflatable-pricing">€ <%= inflatable.price %></h2>
         </div>
       </div>
     <% end %>
