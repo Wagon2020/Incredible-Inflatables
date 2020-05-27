@@ -21,7 +21,12 @@
       <h2><strong>My bookings: </strong></h2>
       <% @user.bookings.each do |booking| %>
       <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% if booking.inflatable.photo.attachment %>
+          <%= cl_image_tag booking.inflatable.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% end %>
+
         <div class="card-product-infos">
           <h2><%= booking.inflatable.name %></h2>
           <p>Booking starts: <%= booking.start_date %> || ends: <%= booking.end_date %></p>
