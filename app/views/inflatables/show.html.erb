@@ -8,8 +8,6 @@
   <%= cl_image_tag @inflatable.photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 <br>
-<%= link_to "edit", edit_inflatable_path(@inflatable) %>
-<br>
 <%= link_to "back", inflatables_path %>
 
 
@@ -24,7 +22,6 @@
   <%= f.input :end_date, as: :date %>
 
   <%= f.button :submit, class: "btn-primary" %>
-  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
 <% end %>
 
 <%= link_to "back", inflatables_path %>
