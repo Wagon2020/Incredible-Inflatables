@@ -1,17 +1,43 @@
-<h1><%= @user.email %></h1>
-<p>my bookings: </p>
-  <% @user.bookings.each do |booking| %>
-    NAME: <%= booking.inflatable.name %> ||
-    STARTS: <%= booking.start_date %> ||
-    ENDS: <%= booking.end_date %>
-    <%= link_to " X ", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
-<p></p>
-<p>my inflatables: </p>
-  <% @user.inflatables.each do |inflatable| %>
-    <%=  inflatable.name %>
-    <%= link_to " X ", inflatable_path(inflatable), method: :delete, data: { confirm: "Are you sure?" } %>
-    <% end %>
-<p></p>
-<%= link_to "create inflatable", new_inflatable_path %>
-<%= link_to "home", root_path %>
+<div class="container">
+  <h1><%= @user.first_name %></h1>
+  <div class="cards-dashboard">
+    <div class="component-dashboard-inflatable">
+      <h2><strong>My inflatables: </strong></h2>
+      <% @user.inflatables.each do |inflatable| %>
+      <%= link_to inflatable.name, inflatable_path(inflatable) %><br>
+      <p>Bookings</p>
+      <% inflatable.bookings.each do |booking| %>
+      <%= booking.user.username %>
+      <p>Starts: <%= booking.start_date %></p>
+      <p>Ends: <%= booking.end_date %></p>
+      <% end %><br>
+
+      <%= link_to " Delete my inflatable ", inflatable_path(inflatable), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+      <p></p>
+    </div>
+
+    <div class="component-dashboard">
+      <h2><strong>My bookings: </strong></h2>
+      <% @user.bookings.each do |booking| %>
+      <div class="card-product">
+        <% if booking.inflatable.photo.attachment %>
+          <%= cl_image_tag booking.inflatable.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% end %>
+
+        <div class="card-product-infos">
+          <h2><%= booking.inflatable.name %></h2>
+          <p>Booking starts: <%= booking.start_date %> || ends: <%= booking.end_date %></p>
+          <p><%= link_to " Delete my booking ", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= link_to "create inflatable", new_inflatable_path %><br>
+  <%= link_to "home", root_path %>
+
+</div>

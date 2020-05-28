@@ -1,35 +1,36 @@
-<h1><%=  @inflatable.name %></h1>
-<p>Description: <%= @inflatable.description %></p>
-<p>Condition: <%= @inflatable.condition %></p>
-<p>Price: <%= @inflatable.price %> €</p>
-<p>Location: <%= @inflatable.location %></p>
-<p>Category: <%= @inflatable.category %></p>
-<% if @inflatable.photo.attachment %>
-  <%= cl_image_tag @inflatable.photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<br>
-<%= link_to "edit", edit_inflatable_path(@inflatable) %>
-<br>
-<%= link_to "back", inflatables_path %>
+<div class="container">
 
+  <div class="cards-show">
+    <div class="card-show-img">
+      <% if @inflatable.photo.attachment %>
+      <%= cl_image_tag @inflatable.photo.key, height: 500, width: 300, crop: :fill %>
+      <% else %>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <% end %>
+    </div>
 
-<h2>Book your inflatable</h2>
+    <div class="card-show">
+      <h1><%=  @inflatable.name %></h1>
+      <p>Description: <%= @inflatable.description %></p>
+      <p>Condition: <%= @inflatable.condition %></p>
+      <p>Price: <%= @inflatable.price %> €</p>
+      <p>Location: <%= @inflatable.location %></p>
+      <p>Category: <%= @inflatable.category %></p>
+      <hr>
+      <h3>Book your inflatable</h3>
+        <%= simple_form_for([@inflatable, @booking]) do |f| %>
 
-<%= simple_form_for([@inflatable, @booking]) do |f| %>
+        <%= f.error_notification %>
 
-  <%= f.error_notification %>
+        <%= f.input :start_date, as: :string, required: false, input_html: {id: "range_start"} %>
 
-  <%= f.input :start_date, as: :date %>
+        <%= f.input :end_date, as: :string, required: false, input_html: {id: "range_end"} %>
 
-  <%= f.input :end_date, as: :date %>
+        <%= f.button :submit, class: "btn-primary" %>
+        <% end %>
+      <hr>
 
-  <%= f.button :submit, class: "btn-primary" %>
-  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-<% end %>
-
-<%= link_to "back", inflatables_path %>
-
-
-<!-- start-date
-end-date
-status(pending, confirmed) -->
+      <%= link_to "back", inflatables_path %>
+    </div>
+  </div>
+</div>
