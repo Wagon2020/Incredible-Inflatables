@@ -6,8 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require "open-uri"
-
 puts 'Destroying bookings, users and inflatables'
 Booking.destroy_all
 Inflatable.destroy_all
@@ -26,10 +24,6 @@ test_user = User.create!(
     description: Faker::Hipster.paragraph(sentence_count: 2)
   )
 
-results = Cloudinary::Search.execute["resources"]
-url_array = results.map { |result| result["url"]}
-
-
 5.times do
   user = User.create!(
     email: Faker::Internet.email,
@@ -41,9 +35,8 @@ url_array = results.map { |result| result["url"]}
   )
 
   rand(0..5).times do
-    file = URI.open(url_array.sample)
 
-      inflatable = Inflatable.new(
+      Inflatable.create!(
       name: Faker::Name.first_name,
       category: inflatables_category_list[rand(inflatables_category_list.length)],
       location: Faker::Address.city,
@@ -52,9 +45,6 @@ url_array = results.map { |result| result["url"]}
       condition: inflatables_condition_list[rand(inflatables_condition_list.length)],
       user_id: user.id
     )
-
-      inflatable.photo.attach(io: file, filename: "#{Faker::Name.first_name}.png" , content_type: 'image/png')
-      inflatable.save!
   end
 end
 
