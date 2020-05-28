@@ -9,7 +9,7 @@ class Inflatable < ApplicationRecord
 
   belongs_to :user
   has_one_attached :photo
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 
   validates :name, presence: true#, uniqueness: { scope: :category, message: "name should be unique in #{category}"}
   validates :category, presence: true
