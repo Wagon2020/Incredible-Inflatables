@@ -1,4 +1,37 @@
-<h1>Edit inflatable page</h1>
-<p>This one is going to be edited: <strong><%= @inflatable.name %></strong></p>
-<br>
-<%= link_to "back", inflatable_path(@inflatable) %>
+<div class="container">
+<div class="container-form" id="add-new">
+    <h1>Edit your inflatable</h1>
+    <br>
+    <%= simple_form_for @inflatable,
+    wrapper: :horizontal_form,
+    wrapper_mappings: {
+      boolean:       :horizontal_boolean,
+      radio_buttons: :horizontal_collection,
+    } do |f| %>
+
+    <%= f.error_notification %>
+
+    <%= f.input :name %>
+
+    <%= f.input :location %>
+
+    <%= f.input :price %>
+
+    <%= f.input :description %>
+
+    <%= f.input :category, collection: Inflatable.cat_array %>
+
+    <%= f.input :condition, as: :radio_buttons, collection: Inflatable.condition_array, wrapper: :horizontal_collection_inline %>
+
+    <%= f.input :photo, as: :file %>
+
+    <div class="form-group row mb-0">
+      <div class="col-sm-9 offset-sm-3">
+        <%= f.button :submit, class: "btn-primary" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <%= link_to "<< back", inflatables_path %>
+
+  </div>

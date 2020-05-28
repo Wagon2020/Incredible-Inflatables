@@ -1,20 +1,24 @@
 <div class="container">
+<script src="https://kit.fontawesome.com/4b1694a3d8.js" crossorigin="anonymous"></script>
+<div class="container-frame">
   <h1><%= @user.first_name %></h1>
   <div class="cards-dashboard">
     <div class="component-dashboard-inflatable">
       <h2><strong>My inflatables: </strong></h2>
       <% @user.inflatables.each do |inflatable| %>
-      <%= link_to inflatable.name, inflatable_path(inflatable) %><br>
-      <p>Bookings</p>
+      <strong><%= link_to inflatable.name, inflatable_path(inflatable) %></strong>
+      <%= link_to edit_inflatable_path(inflatable) do %><i class="fas fa-pencil-alt"></i>
+      <% end %>
+      <%= link_to inflatable_path(inflatable), method: :delete, data: { confirm: "Are you sure?" } do %><i class="fas fa-trash-alt"></i>
+      <% end %>
+      <br>
       <% inflatable.bookings.each do |booking| %>
-      <%= booking.user.username %>
+      <strong><p>Booked by: <%= booking.user.username %></p></strong>
       <p>Starts: <%= booking.start_date %></p>
       <p>Ends: <%= booking.end_date %></p>
-      <% end %><br>
-
-      <%= link_to " Delete my inflatable ", inflatable_path(inflatable), method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>
-      <p></p>
+      <hr>
+      <% end %>
     </div>
 
     <div class="component-dashboard">
@@ -22,9 +26,9 @@
       <% @user.bookings.each do |booking| %>
       <div class="card-product">
         <% if booking.inflatable.photo.attachment %>
-          <%= cl_image_tag booking.inflatable.photo.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag booking.inflatable.photo.key, height: 300, width: 400, crop: :fill %>
         <% else %>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
         <% end %>
 
         <div class="card-product-infos">
@@ -37,7 +41,9 @@
     </div>
   </div>
 
-  <%= link_to "create inflatable", new_inflatable_path %><br>
-  <%= link_to "home", root_path %>
-
+  <div class="links">
+    <strong><%= link_to "+ add an inflatable", new_inflatable_path %><br>
+    <%= link_to "<< home", root_path %></strong>
+  </div>
+</div>
 </div>
