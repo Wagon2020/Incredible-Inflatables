@@ -34,7 +34,5 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(all_params)
   end
 
-  def calculate_total
-  end
 
 end
