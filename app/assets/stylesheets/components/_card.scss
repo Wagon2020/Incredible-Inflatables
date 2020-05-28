@@ -5,9 +5,10 @@
 }
 
 .card-inflatable > img {
-  height: 300px;
-  width: 400px;
+  height: 200px;
+  width: 300px;
   object-fit: cover;
+  object-position: 50% 50%;
 }
 
 .card-inflatable h2 {
@@ -36,5 +37,12 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.card-inflatable-infos .card-inflatable-pricing {
+  position: absolute;
+  right: 5px;
+  top: 15px;
+  width: 37px;
 }
 
