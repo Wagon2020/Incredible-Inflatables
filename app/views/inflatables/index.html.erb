@@ -1,30 +1,39 @@
-<div class="container">
-  <h1>All inflatables</h1>
-  <div class="cards">
-    <% @inflatables.each do |inflatable| %>
+  <div class="container">
+    <h1>All inflatables</h1>
 
-      <div class="card-inflatable">
-        <% if inflatable.photo.attachment %>
-        <%= cl_image_tag inflatable.photo.key, height: 300, width: 400, crop: :fill %>
-        <% else %>
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <% end %>
+    <div class="container-index">
+      <div class="cards">
+        <% @inflatables.each do |inflatable| %>
 
-        <div class="card-inflatable-infos">
-          <div>
-            <h2><%= link_to inflatable.name, inflatable_path(inflatable) %></h2>
-            <p><%= inflatable.description %></p>
+        <div class="card-inflatable">
+          <% if inflatable.photo.attachment %>
+          <%= cl_image_tag inflatable.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <% end %>
+
+          <div class="card-inflatable-infos">
+            <div>
+              <h2><%= link_to inflatable.name, inflatable_path(inflatable) %></h2>
+              <p><%= inflatable.description %></p>
+            </div>
+            <h2 class="card-inflatable-pricing">€ <%= inflatable.price %></h2>
           </div>
-          <h2 class="card-inflatable-pricing">€ <%= inflatable.price %></h2>
         </div>
+        <% end %>
       </div>
-    <% end %>
+
+      <div id="map">
+        <!-- DELETE PLACEHOLDER IMAGE/INSERT MAP IMAGE HERE -->
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      </div>
+    </div>
+
+    <br>
+    <%= link_to "new Inflatable", new_inflatable_path  %>
+    <br>
+    <%= link_to "back", root_path %>
   </div>
-</div>
-<br>
-<%= link_to "new Inflatable", new_inflatable_path  %>
-<br>
-<%= link_to "back", root_path %>
 
 <%= render 'map' %>
 
