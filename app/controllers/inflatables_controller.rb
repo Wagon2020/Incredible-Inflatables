@@ -2,7 +2,15 @@ class InflatablesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :new]
 
   def index
-    @inflatables = Inflatable.all
+    # @inflatables = Inflatable.all
+    @inflatables = Inflatable.geocoded # returns inflatables with coordinates
+
+    @markers = @inflatables.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show

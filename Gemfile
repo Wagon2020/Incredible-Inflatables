@@ -18,6 +18,7 @@ gem 'webpacker'
 
 gem 'cloudinary', '~> 1.12.0'
 gem 'faker'
+gem 'geocoder'
 
 
 group :development do
