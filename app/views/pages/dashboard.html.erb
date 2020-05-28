@@ -10,6 +10,7 @@
       <%= booking.user.username %>
       <p>Starts: <%= booking.start_date %></p>
       <p>Ends: <%= booking.end_date %></p>
+      <p>TOTAL PRICE: <%= (booking.end_date - booking.start_date).to_i * inflatable.price %></p>
       <% end %><br>
 
       <%= link_to " Delete my inflatable ", inflatable_path(inflatable), method: :delete, data: { confirm: "Are you sure?" } %>

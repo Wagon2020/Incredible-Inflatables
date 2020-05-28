@@ -34,4 +34,5 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(all_params)
   end
 
+
 end
