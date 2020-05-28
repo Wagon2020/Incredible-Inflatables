@@ -16,7 +16,8 @@
       <strong><p>Booked by: <%= booking.user.username %></p></strong>
       <p>Starts: <%= booking.start_date %></p>
       <p>Ends: <%= booking.end_date %></p>
-      <% end %>
+      <p>TOTAL PRICE: <%= (booking.end_date - booking.start_date).to_i * inflatable.price %></p>
+      <% end %><br>
       <hr>
       <% end %>
     </div>

@@ -3,10 +3,14 @@
   border-radius: 50%;
 }
 .avatar-large {
-  height: 85px;
-  width: 85px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
 }
+
+.avatar-large:hover {
+    border: 3px dotted $magenta;
+  }
 
 .avatar-bordered {
   width: 40px;

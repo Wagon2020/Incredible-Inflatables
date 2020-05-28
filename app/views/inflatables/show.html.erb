@@ -1,14 +1,15 @@
 <div class="container">
   <div class="container-frame">
 
-    <div class="cards-show">
-      <div class="card-show-img">
-        <% if @inflatable.photo.attachment %>
-        <%= cl_image_tag @inflatable.photo.key, height: 500, width: 300, crop: :fill %>
-        <% else %>
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <% end %>
-      </div>
+  <div class="cards-show">
+    <div class="card-show-img">
+      <% if @inflatable.photo.attachment %>
+      <%= cl_image_tag @inflatable.photo.key, height: 500, width: 300, crop: :fill %>
+      <% else %>
+      <img src="https://res.cloudinary.com/djjqbtq0z/image/upload/c_fill,h_500,w_300/87i6kb0kkv4wnko0cdrt42bjpywl" />
+      <% end %>
+    </div>
+
 
       <div class="card-show">
         <h1><%=  @inflatable.name %></h1>
