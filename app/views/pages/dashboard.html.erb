@@ -1,63 +1,66 @@
 <div class="container">
-<script src="https://kit.fontawesome.com/4b1694a3d8.js" crossorigin="anonymous"></script>
-<div class="container-frame">
-  <h1><%= @user.first_name %></h1>
-  <div class="cards-dashboard">
-    <div class="component-dashboard-inflatable">
-      <h2><strong>My inflatables: </strong></h2>
-      <% @user.inflatables.each do |inflatable| %>
-      <strong><%= link_to inflatable.name, inflatable_path(inflatable) %></strong>
-      <%= link_to edit_inflatable_path(inflatable) do %><i class="fas fa-pencil-alt"></i>
-      <% end %>
-      <%= link_to inflatable_path(inflatable), method: :delete, data: { confirm: "Are you sure?" } do %><i class="fas fa-trash-alt"></i>
-      <% end %>
-      <br>
-      <% inflatable.bookings.each do |booking| %>
-      <strong><p>Booked by: <%= booking.user.username %></p></strong>
-      <p>Starts: <%= booking.start_date %></p>
-      <p>Ends: <%= booking.end_date %></p>
-      <p>Total cost: €<%= (booking.end_date - booking.start_date).to_i * inflatable.price %></p>
-      <% if booking.status == "pending" %>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-danger active">
-          <input type="radio" name="options" id="option1" autocomplete="off" checked> reject
-        </label>
-        <label class="btn btn-success">
-          <input type="radio" name="options" id="option3" autocomplete="off"> accept
-        </label>
-      </div>
-      <% else %>
-        <%=  booking.status%>
-      <% end %>
-      <% end %><br>
-      <hr>
-      <% end %>
-    </div>
+  <script src="https://kit.fontawesome.com/4b1694a3d8.js" crossorigin="anonymous"></script>
+  <div class="container-frame">
+    <h1><%= @user.first_name %></h1>
+    <div class="cards-dashboard">
+      <div class="component-dashboard-inflatable">
+        <h2><strong>My inflatables: </strong></h2>
+        <% @user.inflatables.each do |inflatable| %>
+        <div class="card-product">
+          <div class="card-product-infos">
+            <h2><%= link_to inflatable.name, inflatable_path(inflatable) %>
+              <%= link_to edit_inflatable_path(inflatable) do %><i class="fas fa-pencil-alt"></i>
+              <% end %>
+              <%= link_to inflatable_path(inflatable), method: :delete, data: { confirm: "Are you sure?" } do %><i class="fas fa-trash-alt"></i>
+              <% end %></h2>
+              <% inflatable.bookings.each do |booking| %>
+              <p>Booked by: <%= booking.user.username %> || Booking starts: <%= booking.start_date %> || ends: <%= booking.end_date %></p>
+              <p>Total cost: €<%= (booking.end_date - booking.start_date).to_i * inflatable.price %></p>
+              <p><%= booking.status %></p>
+              <div class="status-buttons">
+                <% if booking.status == "pending" %>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-danger active btn-size">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked> reject
+                  </label>
+                  <label class="btn btn-success btn-size">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> accept
+                  </label>
+                </div>
+                <% else %>
+                <%= booking.status %>
+                <% end %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
 
-    <div class="component-dashboard">
-      <h2><strong>My bookings: </strong></h2>
-      <% @user.bookings.each do |booking| %>
-      <div class="card-product">
-        <% if booking.inflatable.photo.attachment %>
-        <%= cl_image_tag booking.inflatable.photo.key, height: 300, width: 400, crop: :fill %>
-        <% else %>
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <% end %>
+        <div class="component-dashboard">
+          <h2><strong>My bookings: </strong></h2>
+          <% @user.bookings.each do |booking| %>
+          <div class="card-product">
+            <% if booking.inflatable.photo.attachment %>
+            <%= cl_image_tag booking.inflatable.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <% end %>
 
-        <div class="card-product-infos">
-          <h2><%= booking.inflatable.name %></h2>
-          <div><%= booking.status %></div>
-          <p>Booking starts: <%= booking.start_date %> || ends: <%= booking.end_date %></p>
-          <p><%= link_to " Delete my booking ", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } %></p>
+            <div class="card-product-infos">
+              <h2><%= booking.inflatable.name %></h2>
+              <div><%= booking.status %></div>
+              <p>Booking starts: <%= booking.start_date %> || ends: <%= booking.end_date %></p>
+              <p><%= link_to " Delete my booking ", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } %></p>
+            </div>
+          </div>
+          <% end %>
         </div>
       </div>
-      <% end %>
-    </div>
-  </div>
 
-  <div class="links">
-    <strong><%= link_to "+ add an inflatable", new_inflatable_path %><br>
-    <%= link_to "<< home", root_path %></strong>
-  </div>
-</div>
-</div>
+      <div class="links">
+        <strong><%= link_to "+ add an inflatable", new_inflatable_path %><br>
+          <%= link_to "<< home", root_path %></strong>
+        </div>
+      </div>
+    </div>

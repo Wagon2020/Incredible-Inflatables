@@ -64,9 +64,17 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  position: relative;
 }
 
 .links {
   padding: 16px;
+
+}
+
+.status-buttons {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 
 }
