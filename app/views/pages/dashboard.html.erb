@@ -23,8 +23,8 @@
                 <% if booking.pending? %>
                 <div class="status-buttons">
                   <div class="btn-group">
-                    <%= link_to 'reject', reject_path(booking), method: :patch, class: 'btn-rejected'  %>
-                    <%= link_to 'accept', accept_path(booking), method: :patch, class: 'btn-accepted' %>
+                    <%= link_to 'reject', reject_path(booking), method: :patch, class: 'btn-rejected btn-size'  %>
+                    <%= link_to 'accept', accept_path(booking), method: :patch, class: 'btn-accepted btn-size' %>
                   </div>
                 </div>
                 <% else %>
