@@ -1,6 +1,7 @@
 .card-inflatable {
+  width: 300px;
   overflow: hidden;
-  background: white;
+  // background: grey;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
@@ -23,26 +24,45 @@
   margin: 0;
 }
 
-
-.card-inflatable .card-inflatable-infos {
+.card-inflatable-infos-big {
+  // background-color: blue;
   padding: 16px;
+
+}
+
+.card-inf-name-and-price {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
 }
 
-.card-inflatable-infos .card-inflatable-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+.card-inf-description {
+  margin-top: 4px;
+  height: 40px;
+  // background-color: yellow;
 }
 
-.card-inflatable-infos .card-inflatable-pricing {
-  position: absolute;
-  right: 5px;
-  top: 15px;
-  width: 37px;
-}
+
+// .card-inflatable .card-inflatable-infos {
+//   padding: 16px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: flex-end;
+//   position: relative;
+// }
+
+// .card-inflatable-infos .card-inflatable-user {
+//   position: absolute;
+//   right: 16px;
+//   top: -20px;
+//   width: 40px;
+// }
+
+// .card-inflatable-infos .card-inflatable-pricing {
+  // position: absolute;
+  // right: 5px;
+  // top: 15px;
+//   width: 40px;
+//   background-color: green;
+// }
 

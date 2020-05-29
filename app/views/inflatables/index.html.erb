@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-map">
   <div class="extra-margin">
     <h1>All inflatables</h1>
 
@@ -12,12 +12,14 @@
           <img src="https://res.cloudinary.com/djjqbtq0z/image/upload/c_fill,h_300,w_400/awr6uir5uzdk57tfsvsneh0gif8t" />
           <% end %>
 
-          <div class="card-inflatable-infos">
-            <div>
+          <div class="card-inflatable-infos-big">
+            <div class="card-inf-name-and-price">
               <h2><%= link_to inflatable.name, inflatable_path(inflatable) %></h2>
+              <h2 class="card-inflatable-pricing">€ <%= inflatable.price %>,-</h2>
+            </div>
+            <div class="card-inf-description">
               <p><%= inflatable.description %></p>
             </div>
-            <h2 class="card-inflatable-pricing">€ <%= inflatable.price %></h2>
           </div>
         </div>
         <% end %>
