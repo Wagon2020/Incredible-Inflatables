@@ -34,6 +34,7 @@
 
         <div class="card-product-infos">
           <h2><%= booking.inflatable.name %></h2>
+          <div><%= booking.status %></div>
           <p>Booking starts: <%= booking.start_date %> || ends: <%= booking.end_date %></p>
           <p><%= link_to " Delete my booking ", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } %></p>
         </div>
