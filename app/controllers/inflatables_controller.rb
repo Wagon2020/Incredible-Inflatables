@@ -42,7 +42,7 @@ class InflatablesController < ApplicationController
     @inflatable = Inflatable.find(params[:id])
     @inflatable.update(inflatable_params)
 
-    redirect_to inflatable_path(@inflatable)
+    redirect_to dashboard_path
   end
 
   def destroy

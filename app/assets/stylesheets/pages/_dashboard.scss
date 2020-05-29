@@ -26,6 +26,11 @@
     margin: 0px;
     font-size: 14px;
   }
+
+  .card-product {
+    height: auto;
+    width: auto;
+  }
 }
 
 .component-dashboard {
@@ -64,7 +69,16 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.card-product .parent {
   position: relative;
+
+  .status-buttons {
+  position: absolute;
+  bottom: 10px;
+  right: 0px;
+}
 }
 
 .links {
@@ -72,9 +86,4 @@
 
 }
 
-.status-buttons {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
 
-}
