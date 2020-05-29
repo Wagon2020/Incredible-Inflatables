@@ -1,23 +1,25 @@
 <div class="container">
+  <div class="container-frame">
 
   <div class="cards-show">
     <div class="card-show-img">
       <% if @inflatable.photo.attachment %>
       <%= cl_image_tag @inflatable.photo.key, height: 500, width: 300, crop: :fill %>
       <% else %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <img src="https://res.cloudinary.com/djjqbtq0z/image/upload/c_fill,h_500,w_300/87i6kb0kkv4wnko0cdrt42bjpywl" />
       <% end %>
     </div>
 
-    <div class="card-show">
-      <h1><%=  @inflatable.name %></h1>
-      <p>Description: <%= @inflatable.description %></p>
-      <p>Condition: <%= @inflatable.condition %></p>
-      <p>Price: <%= @inflatable.price %> €</p>
-      <p>Location: <%= @inflatable.location %></p>
-      <p>Category: <%= @inflatable.category %></p>
-      <hr>
-      <h3>Book your inflatable</h3>
+
+      <div class="card-show">
+        <h1><%=  @inflatable.name %></h1>
+        <p>Description: <%= @inflatable.description %></p>
+        <p>Condition: <%= @inflatable.condition %></p>
+        <p>Price: <%= @inflatable.price %> €</p>
+        <p>Location: <%= @inflatable.location %></p>
+        <p>Category: <%= @inflatable.category %></p>
+        <hr>
+        <h3>Book your inflatable</h3>
         <%= simple_form_for([@inflatable, @booking]) do |f| %>
 
         <%= f.error_notification %>
@@ -28,9 +30,11 @@
 
         <%= f.button :submit, class: "btn-primary" %>
         <% end %>
-      <hr>
+        <hr>
 
-      <%= link_to "back", inflatables_path %>
+        <%= link_to "<< back", inflatables_path %>
+      </div>
     </div>
   </div>
-</div>
+  </div>
+

@@ -8,6 +8,7 @@
   color: rgba(0,0,0,0.3);
 }
 .footer-links {
+  margin: 0 auto;
   display: flex;
   align-items: center;
 }
@@ -20,6 +21,7 @@
 }
 .footer-links a:hover {
   opacity: 1;
+  color: $green;
 }
 .footer .fa-heart {
   color: white;

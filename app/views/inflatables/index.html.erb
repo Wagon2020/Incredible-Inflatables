@@ -1,15 +1,15 @@
-  <div class="container">
+<div class="container">
+  <div class="extra-margin">
     <h1>All inflatables</h1>
 
     <div class="container-index">
       <div class="cards">
         <% @inflatables.each do |inflatable| %>
-
         <div class="card-inflatable">
           <% if inflatable.photo.attachment %>
-          <%= cl_image_tag inflatable.photo.key, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag inflatable.photo.key, height: 200, width: 300, crop: :fill %>
           <% else %>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <img src="https://res.cloudinary.com/djjqbtq0z/image/upload/c_fill,h_300,w_400/awr6uir5uzdk57tfsvsneh0gif8t" />
           <% end %>
 
           <div class="card-inflatable-infos">
@@ -23,14 +23,13 @@
         <% end %>
       </div>
 
-
-    <%= render 'map' %>
+      <%= render 'map' %>
     </div>
 
     <br>
-    <%= link_to "new Inflatable", new_inflatable_path  %>
+    <%= link_to "+ add an inflatable", new_inflatable_path  %>
     <br>
-    <%= link_to "back", root_path %>
+    <%= link_to "<< back", root_path %>
   </div>
-
+</div>
 
