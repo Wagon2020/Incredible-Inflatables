@@ -1,5 +1,6 @@
+<script src="https://kit.fontawesome.com/4b1694a3d8.js" crossorigin="anonymous"></script>
+
 <div class="container">
-  <script src="https://kit.fontawesome.com/4b1694a3d8.js" crossorigin="anonymous"></script>
   <div class="container-frame">
     <h1><%= @user.first_name %></h1>
     <div class="cards-dashboard">
@@ -16,30 +17,27 @@
               <% inflatable.bookings.each do |booking| %>
 
               <div class="parent">
-              <p>Booked by: <%= booking.user.username %></p>
-              <p>Booking starts: <%= booking.start_date %> || ends: <%= booking.end_date %></p>
-              <p>Total: €<%= (booking.end_date - booking.start_date).to_i * inflatable.price %></p>
-              <% if booking.pending? %>
-                
-              <div class="status-buttons">
-                <div class="btn-group">
+                <p>Booked by: <%= booking.user.username %></p>
+                <p>Booking starts: <%= booking.start_date %> || ends: <%= booking.end_date %></p>
+                <p>Total: €<%= (booking.end_date - booking.start_date).to_i * inflatable.price %></p>
+                <% if booking.pending? %>
+                <div class="status-buttons">
+                  <div class="btn-group">
                     <%= link_to 'reject', reject_path(booking), method: :patch, class: 'btn-rejected'  %>
                     <%= link_to 'accept', accept_path(booking), method: :patch, class: 'btn-accepted' %>
+                  </div>
                 </div>
-              </div>
                 <% else %>
-                  <p>
-                    <%= booking.status %>
-                  </p>
+                <p><%= booking.status %></p>
                 <% end %>
               </div>
               <hr>
-              </div>
-              <% end %>
+            <% end %>
             </div>
-          </div>
-          <% end %>
+
         </div>
+          <% end %>
+      </div>
 
         <div class="component-dashboard">
           <h2><strong>My bookings: </strong></h2>
@@ -61,6 +59,7 @@
           <% end %>
         </div>
       </div>
+
 
       <div class="links">
         <strong><%= link_to "+ add an inflatable", new_inflatable_path %><br>
