@@ -6,9 +6,13 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 //   enableTime: true
 // });
 
-flatpickr("#range_start", {
-  altInput: true,
-  enableTime: true,
-  minDate: "today",
-  plugins: [new rangePlugin({ input: "#range_end"})]
-});
+const initFlatpicker = () => {
+  flatpickr("#range_start", {
+    altInput: true,
+    enableTime: true,
+    minDate: "today",
+    plugins: [new rangePlugin({ input: "#range_end"})]
+  });
+}
+
+export { initFlatpicker }

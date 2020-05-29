@@ -6,9 +6,10 @@ require("channels")
 import "bootstrap";
 import "../plugins/flatpickr"
 import { initMapbox } from '../plugins/init_mapbox';
-
-// initMapbox();
+import { initFlatpicker } from '../plugins/flatpickr';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initFlatpicker();
+
 })
