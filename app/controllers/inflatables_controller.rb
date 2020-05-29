@@ -28,7 +28,7 @@ class InflatablesController < ApplicationController
     @inflatable.save
 
     if @inflatable.save
-      redirect_to @inflatable, notice: 'Inflatable was successfully created.'
+      redirect_to dashboard_path, notice: 'Inflatable was successfully created.'
     else
       render :new
     end
@@ -49,7 +49,7 @@ class InflatablesController < ApplicationController
     @inflatable = Inflatable.find(params[:id])
     @inflatable.destroy
 
-    redirect_to inflatables_path
+    redirect_to dashboard_path
   end
 
   private
