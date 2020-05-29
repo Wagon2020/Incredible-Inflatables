@@ -17,12 +17,14 @@
 </div> -->
 
 <div class ="container flex-box">
-  <% @inflatables.each do |inflatable| %>
+  <% @inflatables.take(5).each do |inflatable| %>
    <% if inflatable.photo.attachment %>
-      <img class="avatar-large" alt="avatar-large" src="<%= cl_image_tag inflatable.photo.key %>"/>
-     <% link_to inflatable.name, inflatable_path(inflatable)%>
-          <% else %>
+   <%=link_to inflatable_path(inflatable) do %>
+ <%=cl_image_tag inflatable.photo.key, :class => "avatar-large"%>
+ <%end %>
+      <% else%>
     <img class="avatar-large" alt="avatar-large" src="https://images.unsplash.com/photo-1506359585186-16ff29581308?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" />
+    <% link_to inflatables_path%>
 <% end %>
 <% end %>
 </div>
@@ -32,6 +34,7 @@
   <p>we give you a clear overview of what incredible inflatable is available,
   near you, including pictures and crucial information concerning the condition of your rental item!
 No more patching holes with plasters, you're instantly instagrammable with incredible inflatables.</p>
+</div>
 
 
 
