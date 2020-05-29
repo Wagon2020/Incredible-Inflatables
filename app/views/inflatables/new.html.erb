@@ -18,7 +18,7 @@
 
     <%= f.input :location %>
 
-    <%= f.input :price, type="number" min="0" %>
+    <%= f.input :price, input_html: { min: '0', step: 'any' } %>
 
     <%= f.input :description %>
 
