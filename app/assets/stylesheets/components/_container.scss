@@ -1,8 +1,14 @@
+
+.container-map {
+  // background-color: blue;
+}
+
 .container {
   width: 80vw;
 }
 .container-index {
   display: flex;
+  // background-color: red;
 }
 
 .container-frame {
@@ -27,5 +33,19 @@
   h2 {
     margin-bottom: 20px;
   }
-
 }
+
+
+
+.extra-margin {
+  width: 90vw;
+  margin: 0 auto;
+  margin-top: 32px;
+  // background-color: white;
+  h1 {
+    color: $magenta;
+    margin-bottom: 20px;
+
+  }
+}
+

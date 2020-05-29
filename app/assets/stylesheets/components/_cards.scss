@@ -1,23 +1,27 @@
 .cards {
+  width: 50%;
   display: grid;
   // grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
 
-.extra-margin {
-  margin: 30px 0px;
-  h1 {
-    color: $magenta;
-    margin-bottom: 20px;
-  }
-}
-
 #map {
+  width: 50%;
   height: 100vh;
   position: sticky;
   top: 0;
   margin-left: 16px;
   }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  #map {
+    display: block;
+  }
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
@@ -56,14 +60,5 @@
   }
 }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-  #map {
-    display: block;
-  }
-}
 
 
