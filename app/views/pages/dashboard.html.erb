@@ -16,21 +16,18 @@
               <% inflatable.bookings.each do |booking| %>
               <p>Booked by: <%= booking.user.username %> || Booking starts: <%= booking.start_date %> || ends: <%= booking.end_date %></p>
               <p>Total cost: €<%= (booking.end_date - booking.start_date).to_i * inflatable.price %></p>
-              <p><%= booking.status %></p>
+                <% if booking.pending? %>
               <div class="status-buttons">
-                <% if booking.status == "pending" %>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                  <label class="btn btn-danger active btn-size">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked> reject
-                  </label>
-                  <label class="btn btn-success btn-size">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> accept
-                  </label>
+                <div class="btn-group">
+                    <%= link_to 'reject', reject_path(booking), method: :patch, class: 'btn-rejected'  %>
+                    <%= link_to 'accept', accept_path(booking), method: :patch, class: 'btn-accepted' %>
                 </div>
-                <% else %>
-                <%= booking.status %>
-                <% end %>
               </div>
+                <% else %>
+                  <p>
+                    <%= booking.status %>
+                  </p>
+                <% end %>
               <% end %>
             </div>
           </div>
