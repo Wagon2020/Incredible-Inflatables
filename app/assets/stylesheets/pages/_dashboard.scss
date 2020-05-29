@@ -1,11 +1,19 @@
+.container-frame {
+  h1 {
+    color: $magenta;
+  }
+}
 .cards-dashboard {
   display: flex;
   h1 {
     font-family: 'Pacifico', cursive;
+    color: darkgrey;
   }
   h2 {
     font-family: 'Pacifico', cursive;
     font-size: 23px;
+    margin-bottom: 15px;
+    color: darkgrey;
   }
 }
 
@@ -13,6 +21,11 @@
   background: white;
   padding: 15px;
   margin-right: 20px;
+  border-right: dashed 5px $magenta;
+  p {
+    margin: 0px;
+    font-size: 14px;
+  }
 }
 
 .component-dashboard {
@@ -51,4 +64,9 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.links {
+  padding: 16px;
+
 }
