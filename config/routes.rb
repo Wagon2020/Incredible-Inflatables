@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
   resources :bookings, only: [:update, :destroy]
+  patch 'bookings/:id/accepted', to: 'bookings#accept', as: :accept
+  patch 'bookings/:id/rejected', to: 'bookings#reject', as: :reject
 end

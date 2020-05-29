@@ -21,3 +21,47 @@
   font-size: 12px;
   border-radius: 30px;
 }
+
+.btn-rejected {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 25px 0px 0px 25px;
+  font-weight: bold;
+  background: $magenta;
+  transition: background 0.5s ease;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.btn-rejected:hover {
+  color: white;
+  text-decoration: none;
+}
+
+
+.btn-size {
+  margin: 5px 0px;
+  font-size: 12px;
+  border-radius: 30px;
+}
+
+.btn-accepted {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 0px 25px 25px 0px;
+  font-weight: bold;
+  background: $green;
+  transition: background 0.5s ease;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.btn-accepted:hover {
+  color: white;
+  text-decoration: none;
+}
+
+
+.btn-size {
+  margin: 5px 0px;
+  font-size: 12px;
+  border-radius: 30px;
+}
