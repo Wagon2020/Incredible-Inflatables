@@ -19,10 +19,10 @@
       <p>Total cost: €<%= (booking.end_date - booking.start_date).to_i * inflatable.price %></p>
       <% if booking.status == "pending" %>
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-danger active">
+        <label class="btn btn-danger active btn-size">
           <input type="radio" name="options" id="option1" autocomplete="off" checked> reject
         </label>
-        <label class="btn btn-success">
+        <label class="btn btn-success btn-size">
           <input type="radio" name="options" id="option3" autocomplete="off"> accept
         </label>
       </div>
