@@ -14,9 +14,13 @@
               <%= link_to inflatable_path(inflatable), method: :delete, data: { confirm: "Are you sure?" } do %><i class="fas fa-trash-alt"></i>
               <% end %></h2>
               <% inflatable.bookings.each do |booking| %>
-              <p>Booked by: <%= booking.user.username %> || Booking starts: <%= booking.start_date %> || ends: <%= booking.end_date %></p>
-              <p>Total cost: €<%= (booking.end_date - booking.start_date).to_i * inflatable.price %></p>
-                <% if booking.pending? %>
+
+              <div class="parent">
+              <p>Booked by: <%= booking.user.username %></p>
+              <p>Booking starts: <%= booking.start_date %> || ends: <%= booking.end_date %></p>
+              <p>Total: €<%= (booking.end_date - booking.start_date).to_i * inflatable.price %></p>
+              <% if booking.pending? %>
+                
               <div class="status-buttons">
                 <div class="btn-group">
                     <%= link_to 'reject', reject_path(booking), method: :patch, class: 'btn-rejected'  %>
@@ -28,6 +32,9 @@
                     <%= booking.status %>
                   </p>
                 <% end %>
+              </div>
+              <hr>
+              </div>
               <% end %>
             </div>
           </div>
