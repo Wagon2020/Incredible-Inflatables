@@ -5,11 +5,12 @@
   border-radius: 4px;
   font-weight: bold;
   background: $magenta;
-  transition: background 0.6s ease;
-  border: 1px solid #0F60C4;
+  transition: background 0.5s ease;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .btn-gradient:hover {
   background: $green;
   color: white;
+  text-decoration: none;
 }
