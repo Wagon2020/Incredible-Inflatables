@@ -16,12 +16,6 @@
 }
 
 
-.btn-size {
-  margin: 5px 0px;
-  font-size: 12px;
-  border-radius: 30px;
-}
-
 .btn-rejected {
   color: white;
   padding: 8px 16px;
@@ -35,13 +29,6 @@
 .btn-rejected:hover {
   color: white;
   text-decoration: none;
-}
-
-
-.btn-size {
-  margin: 5px 0px;
-  font-size: 12px;
-  border-radius: 30px;
 }
 
 .btn-accepted {
@@ -59,9 +46,10 @@
   text-decoration: none;
 }
 
-
 .btn-size {
-  margin: 5px 0px;
+  // margin: 5px 0px;
   font-size: 12px;
-  border-radius: 30px;
+  padding: 7px 13px;
+  // border-radius: 30px;
 }
+
