@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'cloudinary', '~> 1.12.0'
 gem 'faker'
 gem 'geocoder'
+gem 'pg_search', '~> 2.3.0'
 
 
 group :development do
